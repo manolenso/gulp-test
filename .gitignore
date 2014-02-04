@@ -1,0 +1,7 @@
+*.swp
+png/
+svg/
+sass/
+pdf/
+css/
+.sass-cache/

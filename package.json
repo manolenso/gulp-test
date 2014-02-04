@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "gulp": "~3.5.0",
+    "gulp-minify-css": "~0.2.0",
+    "gulp-autoprefixer": "0.0.5",
+    "gulp-ruby-sass": "~0.2.0",
+    "gulp-rsvg": "~0.2.1"
+  }
+}
