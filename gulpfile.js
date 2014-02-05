@@ -6,7 +6,11 @@ var convert = require('gulp-rsvg');
 var watch = require('gulp-watch');
 var notify = require('gulp-notify');
 
-
+var paths={
+   svgIn: 'sources/svg/*.svg',
+   pngOut: 'public/png',
+   pdfOut: 'public/pdf',
+};
 
 gulp.task('sass', function() {
     return gulp.src('sass/main.sass')
@@ -17,25 +21,25 @@ gulp.task('sass', function() {
 });
 
 gulp.task('pdf', function() {
-    return gulp.src('svg/**/*.svg')
+    return gulp.src(paths.svgIn)
         .pipe(convert({
             format: 'pdf'
         }))
-        .pipe(gulp.dest('pdf'));
+        .pipe(gulp.dest(paths.pdfOut));
 });
 
 gulp.task('png', function() {
-    return gulp.src('svg/**/*.svg')
+    return gulp.src(paths.svgIn)
         .pipe(convert({
             format: 'png'
         }))
-        .pipe(gulp.dest('png'));
+        .pipe(gulp.dest(paths.pngOut));
 });
 
 gulp.task('default', function() {
     gulp.watch('sass/**/*.sass', ['sass']);
-    gulp.watch('svg/**/*.svg', ['pdf']);
-    gulp.watch('svg/**/*svg', ['png']);
+    gulp.watch(paths.svgIn, ['pdf']);
+    gulp.watch(paths.svgIn, ['png']);
 });
 
 gulp.task('watch', function(){
