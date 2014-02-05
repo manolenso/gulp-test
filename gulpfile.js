@@ -30,7 +30,6 @@ gulp.task('png', function() {
             format: 'png'
         }))
         .pipe(gulp.dest('png'));
-
 });
 
 gulp.task('default', function() {
